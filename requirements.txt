@@ -1,1 +1,2 @@
 django>=3.2,<3.3
+autopep=2.0.0

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to the homepage of our awesome site</h1>
+{% for object in object_list %}
+<ul>
+    <li>
+        <a href="/house/{{object.id}}">{{ object.title }} - {{ object.address }}</a>
+    </li>
+</ul>
+{% endfor %}
+{% endblock %}

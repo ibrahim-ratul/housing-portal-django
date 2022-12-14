@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if object %}
+<div>
+    <h1>{{ object.title }}</h1>
+    <h2>{{ object.address }}</h2>
+    <img src="{{ object.image }}" alt="house-image">
+    <ul>
+        <li>Number of Rooms: {{ object.room }}</li>
+        <li>Number of Balconies: {{ object.balcony }}</li>
+        <li>Number of Washrooms: {{ object.washroom }}</li>
+        <li>Number of Kitchens: {{ object.kitchen }}</li>
+    </ul>
+    {% if rent %}
+    <p>Rent amount(monthly): <i>{{ object.price }}</i></p>
+    {% elif sell %}
+    <p>Price of house: <i>{{ object.price }}</i></p>
+    {% else %}
+    <p>No Price for Renting or Selling available</p>
+    {% endif %}
+    {% if object.description %}
+    <p>{{ object.description }}</p>
+    {% endif %}
+</div>
+{% else %}
+<p>Content No Loger Available</p>
+{% endif %}
+
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+h1: Anton Villa
+h2: Carter Residence
+h3: Delmonte' Ave
+h4: Severus House
+h5: Stark Residence
+h6: Wayne Manor
+h7: Pauls Palace
+h8: Kent House
+h9: Brown Mansion
+
+3815 Williams Street, Anchorage-99508, AK
+1909 Seventh Street, Berkeley-94710, CA
+4822 Piney Branch Road Northwest, Washington-20011, DC
+1267 Martin Street, Nashville-37203, TN
+2349 East Tall Oaks Drive, Fayetteville-72703, AR
+16820 Coronado Street, Anchorage-99577, AK
+6912 Sunrise Drive, Panama City-32407, FL
+3111 West Ika Lane, Fayetteville-72704, AR
+8852 Broderick Street, Montgomery-36117, AL

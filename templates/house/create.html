@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if not created %}
+<form action="." method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% else %}
+<p>House successfully created</p>
+{% endif %}
+
+
+{% endblock content %}
