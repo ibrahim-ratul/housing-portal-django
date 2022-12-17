@@ -1,19 +1,119 @@
-h1: Anton Villa
-h2: Carter Residence
-h3: Delmonte' Ave
-h4: Severus House
-h5: Stark Residence
-h6: Wayne Manor
-h7: Pauls Palace
-h8: Kent House
-h9: Brown Mansion
-
+Anton Villa
 3815 Williams Street, Anchorage-99508, AK
+rooms = 4
+balcony = 2
+kitchen = 1
+washroom = 1
+price = 128.5 $/mo
+description = An affordable home for a small family. Looking for a tenant who will stay at least 2+ years.
+
+Carter Residence
 1909 Seventh Street, Berkeley-94710, CA
+rooms = 6
+balcony = 2
+kitchen = 1
+washroom = 2
+price = 184.7 $/mo
+description = Well spaced home for a medium to large sized family. Well furnised. No need for repairs or fixes. No charges for the store house.
+
+
+Severus House
 4822 Piney Branch Road Northwest, Washington-20011, DC
+rooms = 4
+balcony = 1
+kitchen = 1
+washroom = 2
+price = 178.3 $/mo
+description = Located at a very convinient position surrounded by 2 schools, 1 hospital, 3 stores and a church. Perfect for families. 
+
+
+Delmonte' Ave
 1267 Martin Street, Nashville-37203, TN
+rooms = 7
+balcony = 3
+kitchen = 2
+washroom = 3
+price = 269.25 $/mo
+description = Impressive architectural desing and well decorated accommodation facilities.  
+
+
+
+McAvoy Residence
 2349 East Tall Oaks Drive, Fayetteville-72703, AR
+rooms = 4
+balcony = 1
+kitchen = 1
+washroom = 1
+price = 143.5 $/mo
+description = Positioned in one of the most peaceful locations of Fayetteville. Surrounded with several facilities including emergency fire services, hospitals and restaurants. 
+
+
+Garden Galaxy
 16820 Coronado Street, Anchorage-99577, AK
+rooms = 5
+balcony = 2
+kitchen = 1
+washroom = 2
+price = 211.5 $/mo
+description = Amazing backyard with segmented garden sections. Furnishable interior with classic design. 
+
+
+Wayne Pent-house
 6912 Sunrise Drive, Panama City-32407, FL
+rooms = 5
+balcony = 1
+kitchen = 1
+washroom = 2
+price = 340.77 $/mo
+description = Your very own pent-house with a lake-view out in the suburbs. 
+
+
+Kent House
 3111 West Ika Lane, Fayetteville-72704, AR
+rooms = 4
+balcony = 1
+kitchen = 1
+washroom = 2
+price = 131 $/mo
+description = A very beautiful house both in the interior and exterior. For families or solo groups looking for a comfortable place to live in. Expected tenant-ship at least 2 years.
+
+
+Marques Mansion
 8852 Broderick Street, Montgomery-36117, AL
+rooms = 10
+balcony = 3
+kitchen = 3
+washroom = 5
+price = 585.5 $/mo
+description = Looking for the most luxurious place in Montgomery? You found it right here. Available for short term and long term renting deals. 
+
+
+
+
+==Owner Users==
+username = john_doe
+email = john.doe@gmail.com
+password = wordpass@9876
+
+username = jane_doe
+email = john.doe@gmail.com
+password = pass@9876word
+
+
+==Tenant Users==
+username = john_smith
+email = smith_j@gmail.com
+password = key@secret$$0011
+
+username = jane_smith
+email = smith_jae.doe@gmail.com
+password = secret$$0011key@
+
+==Admin User==
+username = dell
+email = user@dell.com
+password = test
+
+
+
+
