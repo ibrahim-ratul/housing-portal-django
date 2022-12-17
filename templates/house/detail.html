@@ -12,13 +12,7 @@
         <li>Number of Washrooms: {{ object.washroom }}</li>
         <li>Number of Kitchens: {{ object.kitchen }}</li>
     </ul>
-    {% if rent %}
     <p>Rent amount(monthly): <i>{{ object.price }}</i></p>
-    {% elif sell %}
-    <p>Price of house: <i>{{ object.price }}</i></p>
-    {% else %}
-    <p>No Price for Renting or Selling available</p>
-    {% endif %}
     {% if object.description %}
     <p>{{ object.description }}</p>
     {% endif %}

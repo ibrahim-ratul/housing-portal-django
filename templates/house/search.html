@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for object in house_objects %}
+{% if object %}
+<h1>{{ object.title }}</h1>
+<h2>{{ object.address }}</h2>
+<img src="{{ object.image.url }}" alt="house-image">
+<ul>
+    <li>Number of Rooms: {{ object.room }}</li>
+    <li>Number of Balconies: {{ object.balcony }}</li>
+    <li>Number of Washrooms: {{ object.washroom }}</li>
+    <li>Number of Kitchens: {{ object.kitchen }}</li>
+</ul>
+<p>Rent amount(monthly): <i>{{ object.price }}</i></p>
+{% if object.description %}
+<p>{{ object.description }}</p>
+{% endif %}
+{% endif %}
+{% endfor %}
+
+{% endblock content %}

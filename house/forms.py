@@ -5,7 +5,7 @@ from .models import House
 class HouseForm(forms.ModelForm):
     class Meta:
         model = House
-        fields = ['title', 'image', 'address', 'option', 'price',
+        fields = ['title', 'image', 'address', 'price',
                   'rooms', 'kitchen', 'balcony', 'description', 'washroom']
 
     def clean(self):
