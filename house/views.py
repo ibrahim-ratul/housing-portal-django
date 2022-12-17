@@ -6,7 +6,10 @@ from .forms import HouseForm
 
 
 def house_create_view(request):
-    form = HouseForm(request.POST or None)
+    if request.method == "GET":
+        form = HouseForm(None)
+    elif request.method == "POST":
+        form = HouseForm(request.POST, request.FILES)
     context = {'form': form}
     if form.is_valid():
         obj = form.save()

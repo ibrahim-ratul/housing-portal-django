@@ -1,13 +1,13 @@
 from django.db import models
 
 # Create your models here.
-OPTIONS = (("SELL", "SELL"), ("BUY", "BUY"),
-           ("TAKE RENT", "TAKE RENT"), ("GIVE RENT", "GIVE RENT"))
+OPTIONS = (
+    ("TAKE RENT", "TAKE RENT"), ("GIVE RENT", "GIVE RENT"))
 
 
 class House(models.Model):
     title = models.CharField(max_length=120)
-    # image = models.ImageField()
+    image = models.ImageField(default='default.jpg', upload_to='inventory')
     address = models.TextField(max_length=250)
     option = models.TextField(
         max_length=9, choices=OPTIONS, default="TAKE RENT")
