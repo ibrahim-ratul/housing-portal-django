@@ -7,10 +7,11 @@
     <h2>{{ object.address }}</h2>
     <img src="{{ object.image.url }}" alt="house-image">
     <ul>
-        <li>Number of Rooms: {{ object.room }}</li>
+        <li>Number of Rooms: {{ object.rooms }}</li>
         <li>Number of Balconies: {{ object.balcony }}</li>
         <li>Number of Washrooms: {{ object.washroom }}</li>
         <li>Number of Kitchens: {{ object.kitchen }}</li>
+        <li>Owner of House: {{ object.created_by }}</li>
     </ul>
     <p>Rent amount(monthly): <i>{{ object.price }}</i></p>
     {% if object.description %}
