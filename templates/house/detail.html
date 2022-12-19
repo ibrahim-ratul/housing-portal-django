@@ -11,19 +11,20 @@
         <li>Number of Balconies: {{ object.balcony }}</li>
         <li>Number of Washrooms: {{ object.washroom }}</li>
         <li>Number of Kitchens: {{ object.kitchen }}</li>
-        <li>Owner of House: {{ object.created_by }}</li>
+        <li>Owner of House: <a href="/profile/{{ owner.username }}">{{ owner.username }}</a></li>
     </ul>
     <p>Rent amount(monthly): <i>{{ object.price }}</i></p>
     {% if object.description %}
     <p>{{ object.description }}</p>
     {% endif %}
-    <form action="/rent" method="POST">
-        <select name="rent">
-            <option value="interested">Interested</option>
-            <option value="confirm">Confirm Rent</option>
-        </select>
-        <input type="submit">
+
+    {% if is_tenant %}
+    <form action="/rent/" method="GET">
+        <!-- {% csrf_token %} -->
+        <p>Do you want to confirm renting {{ object.title }}</p>
+        <button type="submit" name="title" value="{{ object.title }}">Confirm</button>
     </form>
+    {% endif %}
 </div>
 {% else %}
 <p>Content No Loger Available</p>

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'house',
     'accounts',
+    'rents',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -69,8 +71,18 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'housing_portal.wsgi.application'
+# WSGI_APPLICATION = 'housing_portal.wsgi.application'
+ASGI_APPLICATION = 'housing_portal.asgi.application'
 
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -132,3 +144,6 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.Accounts"
+
+STRIPE_SECRET_KEY = 'sk_test_51MGSYQSAePtg4tJUe7i0ea3v3DEXdhU4byHScCovb8cYyEBcqOHv7m4utylm9Su7GEumwDtmH9V4qQ84B4dFHPq600LJPdMHg7'
+STRIP_PUBLISHALBE_KEY = 'pk_test_51MGSYQSAePtg4tJUb0Y1zICDocmb6bdJRNCUX35BnuLQ5Am3v1QqAz0ZJaqvodxWIvsdA1aU9qrsapMt98FDSW55007HKoyzY5'

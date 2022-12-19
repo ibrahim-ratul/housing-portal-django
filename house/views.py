@@ -1,8 +1,18 @@
+import stripe
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
 from .models import House
+from accounts.models import Accounts
 from .forms import HouseForm
+
+
+from house.models import House
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+global_context = {
+}
 
 
 @login_required
@@ -30,10 +40,15 @@ def house_detail_view(request, id):
     context = {}
     try:
         query = House.objects.get(id=id)
+        owner = Accounts.objects.get(username=query.created_by)
+        owner_id = owner.id
         context['object'] = query
+        context['id'] = owner_id
+        context['owner'] = owner
     except:
         query = None
     context['object'] = query
+    context['is_tenant'] = request.user.is_tenant
     return render(request, "house/detail.html", context)
 
 
