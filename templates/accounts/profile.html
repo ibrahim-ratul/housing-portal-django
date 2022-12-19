@@ -11,6 +11,28 @@
             <p class="text-secondary">{{ account.email }}</p>
         </div>
     </div>
+
+
+    {% if objects %}
+    {% for obj in objects %}
+    <ul>
+        <li>
+            <a href="/house/{{object.id}}">{{ obj.title }} - {{ obj.address }}</a>
+        </li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+
+    {% if rent %}
+    <div>
+        <h3>House Name: {{ rent.title }}</h3>
+        <h3>Date Rented: {{ rent.date_rented }}</h3>
+        <h3>Last Payment: {{ rent.last_payment_date }}</h3>
+        <h3>Rent (per month): {{ rent.price }} $</h3>
+    </div>
+    {% endif %}
+
+
     {% if not view %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}

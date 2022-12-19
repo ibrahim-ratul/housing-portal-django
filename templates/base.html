@@ -16,6 +16,7 @@
     <nav>
         <a href="{% url 'home' %}">Home</a>
         {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}">Profile</a>
         {% if user.is_owner %}
         <a href="{% url 'house-create' %}">Create</a>
         {% endif %}

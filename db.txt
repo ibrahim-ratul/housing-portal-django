@@ -88,7 +88,7 @@ price = 585.5 $/mo
 description = Looking for the most luxurious place in Montgomery? You found it right here. Available for short term and long term renting deals. 
 
 
-
+(555) 555-1234
 
 ==Owner Users==
 username = john_doe
@@ -106,7 +106,7 @@ email = smith_j@gmail.com
 password = key@secret$$0011
 
 username = jane_smith
-email = smith_jae.doe@gmail.com
+email = smith_jae@gmail.com
 password = secret$$0011key@
 
 ==Admin User==
