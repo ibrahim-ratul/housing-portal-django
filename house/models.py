@@ -1,7 +1,7 @@
 from django.db.models.signals import pre_save, post_save
 
 from django.db import models
-from controllers.house.controller import slugify_instance_title
+from controllers.houses.utils import slugify_instance_title
 from accounts.models import Accounts
 
 

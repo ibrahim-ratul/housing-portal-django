@@ -3,10 +3,16 @@
 {% block content %}
 <h1>Welcome to the homepage of our awesome site</h1>
 {% for object in object_list %}
-<ul>
-    <li>
-        <a href="/house/{{object.slug}}">{{ object.title }} - {{ object.address }}</a>
-    </li>
-</ul>
+<div class="container">
+    <a href="/house/{{object.slug}}">
+        <img src="{{ object.image.url }}" alt="Houses" class="photo">
+        <div class="content">
+            <p class="title">{{ object.title }}</p>
+            <p class="description">{{ object.description }}</p>
+            <img src="media/link.svg" class="link" alt="link">
+        </div>
+    </a>
+</div>
+
 {% endfor %}
 {% endblock %}

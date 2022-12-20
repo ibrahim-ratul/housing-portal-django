@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .forms import HouseForm
-from controllers.house.controller import house_detail_controller, house_search_controller
+from controllers.houses.controller import house_detail_controller, house_search_controller
 
 
 @login_required
