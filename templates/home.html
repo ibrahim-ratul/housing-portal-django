@@ -5,7 +5,7 @@
 {% for object in object_list %}
 <ul>
     <li>
-        <a href="/house/{{object.id}}">{{ object.title }} - {{ object.address }}</a>
+        <a href="/house/{{object.slug}}">{{ object.title }} - {{ object.address }}</a>
     </li>
 </ul>
 {% endfor %}

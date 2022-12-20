@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import SignUpForm, AccountUpdateForm
-from .models import Accounts
-from house.models import House
-from rents.models import Rents
+from controllers.accounts.controller import profile_controller, profile_view_controller
 
 
 def login_view(request):
@@ -43,51 +41,30 @@ def register_view(request):
 
 @login_required
 def profile(request):
-    context = {}
     if request.method == 'POST':
-        p_form = AccountUpdateForm(
+        form = AccountUpdateForm(
             request.POST, request.FILES, instance=request.user)
 
-        if p_form.is_valid():
-            p_form.save()
-            messages.success(
-                request, f'Your Account has been updated!')
+        if form.is_valid():
+            form.save()
             return redirect('profile')
+
     else:
-        p_form = AccountUpdateForm(instance=request.user)
+        form = AccountUpdateForm(instance=request.user)
     context = {
         'account': request.user,
-        'p_form': p_form
+        'form': form
     }
 
-    if request.user.is_owner:
-        try:
-            house_objects = House.objects.filter(
-                created_by=Accounts.objects.get(username=request.user.username).id)
-            context['objects'] = house_objects
-        except:
-            print('No house objects for this user')
-    elif request.user.is_tenant:
-        try:
-            rent = Rents.objects.get(tenant=request.user)
-            context['rent'] = rent
-        except:
-            print('Does not exist')
+    context.update(profile_controller(request.user))
+
     return render(request, 'accounts/profile.html', context)
 
 
 @login_required
 def profile_view(request, username=None):
-    context = {}
     if username is not None:
-        try:
-            user = Accounts.objects.get(username=username)
-        except:
-            user = None
-
-        context = {
-            'view': True,
-            'account': user
-        }
+        context = profile_view_controller(username)
         return render(request, 'accounts/profile.html', context)
+
     return redirect('home')

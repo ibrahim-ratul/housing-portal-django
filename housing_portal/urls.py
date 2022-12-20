@@ -13,7 +13,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("house/", house_search_view),
     path('house/create/', house_create_view, name='house-create'),
-    path('house/<int:id>', house_detail_view, name='house-detail'),
+    path('house/<str:slug>', house_detail_view, name='house-detail'),
     path("login/", login_view, name='login'),
     path("logout/", logout_view, name='logout'),
     path("register/", register_view, name='register'),
