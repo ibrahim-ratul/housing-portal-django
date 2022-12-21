@@ -11,7 +11,7 @@ from controllers.rents.controller import rent_view_controller
 
 class RentTestCase(TestCase):
     def setUp(self):
-        self.number_of_users = 4  # double
+        self.number_of_users = 4
         self.number_of_rents = 4
 
         for i in range(0, self.number_of_users):
@@ -32,9 +32,6 @@ class RentTestCase(TestCase):
                 is_owner=True
             )
 
-    def test_rent_controller(self):
-        pass
-    """
         for i in range(0, self.number_of_users):
             house = House.objects.create(
                 title=f'Title-{i}',
@@ -46,11 +43,7 @@ class RentTestCase(TestCase):
                 balcony=random.randint(1, 10),
                 created_by=Accounts.objects.get(username=f'user_{i+400}')
             )
-
-            temp_house = house
-            q_title = house.title
-
-            rent = Rents.objects.create(
+            Rents.objects.create(
                 owner=house.created_by.username,
                 tenant=Accounts.objects.get(username=f'user_{i}'),
                 date_rented=datetime.date.today(),
@@ -59,21 +52,14 @@ class RentTestCase(TestCase):
                 title=house.title,
             )
 
-            q_account = rent.tenant
+    def test_rent_count(self):
+        qs = Rents.objects.all()
+        self.assertEqual(self.number_of_rents, qs.count())
 
-            house = House.objects.create(
-                title=temp_house.title,
-                address=temp_house.address,
-                price=temp_house.price,
-                rooms=temp_house.rooms,
-                kitchen=temp_house.kitchen,
-                washroom=temp_house.washroom,
-                balcony=temp_house.balcony,
-                created_by=temp_house.created_by
-            )
+    def test_tenant_count(self):
+        qs = Rents.objects.all()
+        self.assertEqual(self.number_of_users, qs.count())
 
-            result = rent_view_controller(q_title, q_account)
-            print("result", result)
-            print("rent", rent)
-            self.assertEqual(rent, result)
-"""
+    def test_house_count(self):
+        qs = House.objects.all()
+        self.assertEqual(0, qs.count())

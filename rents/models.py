@@ -19,7 +19,6 @@ class Rents(models.Model):
 
 def rent_post_save(sender, instance, created, **kwargs):
     if created:
-        print(instance.title)
         House.objects.get(title=instance.title).delete()
 
 

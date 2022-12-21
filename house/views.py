@@ -28,7 +28,7 @@ def house_create_view(request):
 def house_detail_view(request, slug):
     context = house_detail_controller(slug)
     context['is_tenant'] = request.user.is_tenant
-
+    context['owner'] = context.get('object').created_by
     return render(request, "house/detail.html", context)
 
 

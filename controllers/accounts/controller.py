@@ -15,7 +15,7 @@ def profile_controller(user):
         try:
             rent = Rents.objects.get(tenant=user)
             return {"rent": rent}
-        except:
+        except Exception as error:
             print('Error in profile_controller(tenant) -->', error)
 
     return {}

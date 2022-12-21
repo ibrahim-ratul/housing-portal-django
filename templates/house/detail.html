@@ -2,33 +2,65 @@
 
 {% block content %}
 {% if object %}
-<div>
-    <h1>{{ object.title }}</h1>
-    <h2>{{ object.address }}</h2>
-    <img src="{{ object.image.url }}" alt="house-image">
-    <ul>
-        <li>Number of Rooms: {{ object.rooms }}</li>
-        <li>Number of Balconies: {{ object.balcony }}</li>
-        <li>Number of Washrooms: {{ object.washroom }}</li>
-        <li>Number of Kitchens: {{ object.kitchen }}</li>
-        <li>Owner of House: <a href="/profile/{{ owner.username }}">{{ owner.username }}</a></li>
-    </ul>
-    <p>Rent amount(monthly): <i>{{ object.price }}</i></p>
-    {% if object.description %}
-    <p>{{ object.description }}</p>
-    {% endif %}
+<div class="card-wrapper">
+    <div class="card">
+        <div class="product-imgs">
+            <div class="img-display">
+                <div class="img-showcase">
+                    <img src="{{ object.image.url }}" alt="house image">
+                </div>
+            </div>
+        </div>
+        <div class="product-content">
+            <h2 class="product-title">{{ object.title }}</h2>
+            <a href="/profile/{{ owner.username }}" class="product-link">Owner: {{ owner.username }}</a>
+            <div class="product-price">
+                <p class="new-price">{{ object.address }}</span></p>
+                <p class="new-price">Rent(/mo) <span>${{ object.price }}</span></p>
+            </div>
 
-    {% if is_tenant %}
-    <form action="/rent/" method="GET">
-        <!-- {% csrf_token %} -->
-        <p>Do you want to confirm renting {{ object.title }}</p>
-        <button type="submit" name="title" value="{{ object.title }}">Confirm</button>
-    </form>
-    {% endif %}
+            <div class="product-detail">
+                <h2>About this house: </h2>
+                <p>{{ object.description }}</p>
+                <ul>
+                    <li>Number of Rooms: <span>{{ object.rooms }}</span></li>
+                    <li>Number of Washrooms: <span>{{ object.washroom }}</span></li>
+                    <li>Number of Kitchens: <span>{{ object.kitchen }}</span></li>
+                    <li>Number of Balconies: <span>{{ object.balcony }}</span></li>
+                </ul>
+            </div>
+            {% if is_tenant %}
+            <div class="purchase-info">
+                <form action="/rent/" method="GET">
+                    <!-- <p>Do you want to confirm renting {{ object.title }}</p> -->
+                    <button type="submit" name="title" value="{{ object.title }}" class="btn">Confirm</button>
+                </form>
+            </div>
+            {% endif %}
+
+            <div class="social-links">
+                <p>Share At: </p>
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-pinterest"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 {% else %}
 <p>Content No Loger Available</p>
 {% endif %}
-
 
 {% endblock content %}
