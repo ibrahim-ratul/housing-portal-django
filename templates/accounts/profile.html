@@ -1,45 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-    <div>
-        <img src="{{ account.image.url }}">
-        <div>
-            <h2>{{ account.username }}</h2>
-            <p>{{ account.full_name }}</p>
-            <p>{{ account.phone }}</p>
-            <p>{{ account.email }}</p>
+<div class="card-wrapper">
+    <div class="card">
+        <div class="profile-imgs">
+            <div class="img-display">
+                <div class="img-showcase">
+                    <img src="{{ account.image.url }}" alt="profileimag">
+                </div>
+            </div>
+        </div>
+        <div class="product-content">
+            <h2 class="product-title">{{ account.full_name }}</h2>
+            <div class="product-price">
+                <p class="new-price">Username: <span>{{account.username }}</span></p>
+                <p class="new-price">Mail: <span>{{ account.email }}</span></p>
+                <p class="new-price">Phone: <span>{{ account.phone }}</span></p>
+                {% if objects %}
+                {% for obj in objects %}
+                <a href="/house/{{obj.slug}}">
+
+                    <p class="new-price"><span>{{ obj.title }}</span></p>
+
+                </a>
+                {% endfor %}
+                {% endif %}
+                {% if rent %}
+                <div>
+                    <h3 class="new-price">House Name: <span>{{ rent.title }}</span></h3>
+                    <h3 class="new-price">Date Rented: <span>{{ rent.date_rented }}</span></h3>
+                    <h3 class="new-price">Last Payment: <span>{{ rent.last_payment_date }}</span></h3>
+                    <h3 class="new-price">Rent (per month): <span>{{ rent.price }}$</span></h3>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="product-detail">
+                <h2>Update Information </h2>
+                {% if not view %}
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset>
+                        {{ form }}
+                    </fieldset>
+                    <div class="purchase-info">
+                        <button type="submit" class="purchase-info btn">Update</button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+            {% if is_tenant %}
+            <div class="purchase-info">
+                <form action="/rent/" method="GET">
+                    <button type="submit" name="title" value="{{ object.title }}" class="btn">Confirm</button>
+                </form>
+            </div>
+            {% endif %}
         </div>
     </div>
 
-
-    {% if objects %}
-    {% for obj in objects %}
-    <ul>
-        <li>
-            <a href="/house/{{obj.slug}}">{{ obj.title }} - {{ obj.address }}</a>
-        </li>
-    </ul>
-    {% endfor %}
-    {% endif %}
-
-    {% if rent %}
-    <div>
-        <h3>House Name: {{ rent.title }}</h3>
-        <h3>Date Rented: {{ rent.date_rented }}</h3>
-        <h3>Last Payment: {{ rent.last_payment_date }}</h3>
-        <h3>Rent (per month): {{ rent.price }} $</h3>
-    </div>
-    {% endif %}
-
-
-    {% if not view %}
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset>
-            {{ form }}
-        </fieldset>
-        <button type="submit">Update</button>
-    </form>
-    {% endif %}
 </div>
+
+
 {% endblock content %}

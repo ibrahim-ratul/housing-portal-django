@@ -34,29 +34,15 @@
                 <li><a href="{% url 'register' %}">Sign Up</a></li>
                 {% endif %}
             </ul>
-            <form action="house/" method="GET">
+            <form class='search' action="house/" method="GET">
                 <input type="text" name="q" placeholder="State, Location, Price ...">
-                <input type="submit">
+                <!-- <input type="submit"> -->
             </form>
         </nav>
         <label for="nav-toggle" class="nav-toggle-label">
             <span></span>
         </label>
     </header>
-    <!-- <nav>
-        <a href="{% url 'home' %}">Home</a>
-        {% if user.is_authenticated %}
-        <a href="{% url 'profile' %}">Profile</a>
-        {% if user.is_owner %}
-        <a href="{% url 'house-create' %}">Create</a>
-        {% endif %}
-        <a href="{% url 'logout' %}">Logout</a>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'register' %}">Sign Up</a>
-        {% endif %}
-    </nav> -->
-
     {% block content %}
     {% endblock content%}
 </body>
